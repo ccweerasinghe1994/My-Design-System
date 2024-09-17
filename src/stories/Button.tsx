@@ -1,27 +1,22 @@
-
-
 import { ComponentProps, FC } from 'react';
-import styles from './Button.module.css';
-
+import './Button.css';
 
 export type ButtonProps = ComponentProps<'button'> & {
-  variant: 'primary' | 'secondary'|'destructive';
+  variant: 'primary' | 'secondary' | 'destructive';
 }
 
-const Button:FC<ButtonProps> = ({variant,...props})=>{
+const Button: FC<ButtonProps> = ({ variant, ...props }) => {
+  let className = 'button';
 
-  let className = styles.button;
-
-  if(variant === 'secondary'){
-    className += ' ' + styles.secondary;
+  if (variant === 'secondary') {
+    className += ' secondary';
   }
 
-  if(variant === 'destructive'){
-    className += ' ' + styles.destructive;
+  if (variant === 'destructive') {
+    className += ' destructive';
   }
-  
 
-  return <button className={ className} {...props}/>
+  return <button className={className} {...props} />
 }
 
 export default Button;
